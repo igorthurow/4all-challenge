@@ -4,11 +4,11 @@ import { Widgets } from './components/Widgets'
 import './styles/css/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export class App extends React.Component<{}, State> {
+export class App extends React.Component<{}, AppState> {
 	/**
 	 * Initial State
 	 */
-	public state: State = {
+	public state: AppState = {
 		widgets: null,
 		chart: null,
 		messages: null
@@ -42,8 +42,8 @@ export class App extends React.Component<{}, State> {
 	 */
 	render() {
 		return (
-			<div className="container-fluid">
-				<Widgets />
+			<div className="App container-fluid">
+				<Widgets cards={this.state.widgets} />
 			</div>
 		)
 	}
@@ -52,7 +52,7 @@ export class App extends React.Component<{}, State> {
 /**
  * State interface to App (for the TypeScript)
  */
-export interface State {
+export interface AppState {
 	widgets: {
 		newOrders: number
 		comments: number
