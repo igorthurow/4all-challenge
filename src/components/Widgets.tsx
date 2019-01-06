@@ -31,7 +31,7 @@ export const Widgets = (props: Props) => {
 	 * Render the content
 	 */
 	return (
-		<div className="Widgets">
+		<section className="Widgets">
 			<div className="row">
 				{createCard('New Orders', props.cards && props.cards.newOrders, 'fas fa-shopping-bag')}
 				{createCard('Comments', props.cards && props.cards.comments, 'far fa-comment')}
@@ -42,7 +42,7 @@ export const Widgets = (props: Props) => {
 					'fas fa-chart-bar'
 				)}
 			</div>
-		</div>
+		</section>
 	)
 }
 

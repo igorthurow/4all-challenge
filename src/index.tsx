@@ -4,6 +4,7 @@ import { Widgets } from './components/Widgets'
 import './styles/css/index.css'
 import 'bootstrap/dist/css/bootstrap-grid.min.css'
 import 'bootstrap/dist/css/bootstrap-reboot.min.css'
+import { Chart } from './components/Charts'
 
 export class App extends React.Component<{}, AppState> {
 	/**
@@ -49,7 +50,9 @@ export class App extends React.Component<{}, AppState> {
 	render() {
 		return (
 			<div className="App container-fluid">
+				<h1 className="title">Dashboard</h1>
 				<Widgets cards={this.state.widgets} />
+				<Chart pageViews={this.state.chart} />
 			</div>
 		)
 	}
@@ -66,7 +69,7 @@ export interface AppState {
 		pageViews: number
 	} | null
 	chart: Array<{
-		mouth: string
+		month: string
 		views: number
 	}> | null
 	messages: Array<{

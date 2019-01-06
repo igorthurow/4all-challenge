@@ -1,9 +1,18 @@
 @import 'Widgets';
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import 'Charts';
 
 body {
 	.App {
 		font-family: 'Open Sans', sans-serif;
 		background-color: #f1f4f7;
+		> .title {
+			font-weight: normal;
+			font-size: 45px;
+			padding: 15px 0;
+			color: #5f6468;
+		}
+		.Chart {
+			margin-top: 15px;
+		}
 	}
 }
