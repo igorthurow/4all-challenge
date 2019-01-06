@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Widgets } from './components/Widgets'
 import './styles/css/index.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap-grid.min.css'
+import 'bootstrap/dist/css/bootstrap-reboot.min.css'
 
 export class App extends React.Component<{}, AppState> {
 	/**
@@ -16,18 +17,23 @@ export class App extends React.Component<{}, AppState> {
 
 	componentWillMount() {
 		/**
+		 * Endpoint from API
+		 */
+		const API = 'http://dev.4all.com:3050'
+
+		/**
 		 * Function to get Data from API endpoint.
 		 * @param url Endpoint from API
 		 */
 		const getData = (url: string) => fetch(url).then(response => response.json().then(response => response))
 
 		/**
-		 * Get all API Data and set to respective state.
+		 * Get all Endpoint Data and set to respective state.
 		 */
 		Promise.all([
-			getData('http://dev.4all.com:3050/widgets'),
-			getData('http://dev.4all.com:3050/pageViews'),
-			getData('http://dev.4all.com:3050/messages')
+			getData(`${API}/widgets`),
+			getData(`${API}/pageViews`),
+			getData(`${API}/messages`)
 		]).then(responses =>
 			this.setState({
 				widgets: responses[0],

@@ -1,9 +1,19 @@
 import React from 'react'
 
+/**
+ * Component Widgets, will render cards and populate data with props coming from container.
+ * @param props Data for cards from container
+ */
 export const Widgets = (props: Props) => {
+	/**
+	 * Will create a pre stylized card with the params:
+	 * @param title Title for card
+	 * @param value Value for card
+	 * @param iconClassName Icon for card
+	 */
 	const createCard = (title: string, value: null | number | string, iconClassName: string) => (
-		<div className="col-xl-3 col-lg-6 col-xs-12 card-gap">
-			<span className="col-md-12 card-container">
+		<div className="col-xl-3 col-lg-6 col-xs-12 card">
+			<span className="card-container">
 				<span className={`card-icon ${title.toLowerCase().replace(' ', '-')}`}>
 					<i className={iconClassName} />
 				</span>
@@ -11,12 +21,15 @@ export const Widgets = (props: Props) => {
 					<span className="card-data-value" style={{ opacity: value ? 1 : 0 }}>
 						{value ? value : '000'}
 					</span>
-					<span className="card-data-title">{title || null}</span>
+					<span className="card-data-title">{title}</span>
 				</span>
 			</span>
 		</div>
 	)
 
+	/**
+	 * Render the content
+	 */
 	return (
 		<div className="Widgets">
 			<div className="row">
@@ -33,6 +46,9 @@ export const Widgets = (props: Props) => {
 	)
 }
 
+/**
+ * Props interface to Widgets Component (for the TypeScript)
+ */
 export interface Props {
 	cards: {
 		newOrders: number
