@@ -9,9 +9,9 @@ export const Widgets = (props: Props) => {
 	 * Will create a pre stylized card with the params:
 	 * @param title Title for card
 	 * @param value Value for card
-	 * @param iconClassName Icon for card
+	 * @param iconClassName Icon for card (Optional)
 	 */
-	const createCard = (title: string, value: null | number | string, iconClassName: string) => (
+	const createCard = (title: string, value: null | number | string, iconClassName?: string) => (
 		<div className="col-xl-3 col-lg-6 col-xs-12 card">
 			<span className="card-container">
 				<span className={`card-icon ${title.toLowerCase().replace(' ', '-')}`}>

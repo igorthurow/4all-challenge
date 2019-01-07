@@ -7,7 +7,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
  */
 export const Chart = (props: Props) => {
 	/**
-	 * Creates a new random data Views to make a comparative Chart. API retrieve just one View data.
+	 * Creates a new random 'Views' data to simulate a comparative Chart (API retrieve just one 'Views' data).
 	 */
 	const relativeData = () =>
 		props.pageViews!.map(chartData => ({
@@ -15,13 +15,14 @@ export const Chart = (props: Props) => {
 			views: chartData.views,
 			lastMonth: +(chartData.views + (Math.random() * (500 - 100) + 100)).toFixed(0)
 		}))
+
 	/**
 	 * Render the content
 	 */
 	return (
 		<section className="Chart">
 			<h2 className="chart-title">Site Traffic Overview</h2>
-			<div style={{ opacity: props.pageViews ? 1 : 0 }}>
+			<div style={{ opacity: props.pageViews ? 1 : 0, transition: '.25s' }}>
 				{props.pageViews && (
 					<ResponsiveContainer height={415}>
 						<AreaChart data={relativeData()} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

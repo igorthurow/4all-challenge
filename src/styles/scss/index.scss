@@ -1,8 +1,10 @@
 @import 'Widgets';
 @import 'Charts';
+@import 'Chat';
 
 body {
 	.App {
+		padding-bottom: 15px;
 		font-family: 'Open Sans', sans-serif;
 		background-color: #f1f4f7;
 		> .title {
@@ -13,6 +15,9 @@ body {
 		}
 		.Chart {
 			margin-top: 15px;
+		}
+		.Chat {
+			margin-top: 25px;
 		}
 	}
 }
