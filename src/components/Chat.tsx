@@ -1,11 +1,20 @@
 import * as React from 'react'
-import { render } from 'react-dom'
 
+/**
+ * Component Chat, will render the Chat and populate with data coming from container.
+ * @param props Data from container for create Chat
+ */
 export class Chat extends React.Component<Props, State> {
+	/**
+	 * Initial State
+	 */
 	public state: State = {
 		newMessage: ''
 	}
 
+	/**
+	 * Format chat Messages
+	 */
 	formatMessage = () =>
 		this.props.messages!.map((message, index) => (
 			<div
@@ -31,6 +40,10 @@ export class Chat extends React.Component<Props, State> {
 				</div>
 			</div>
 		))
+
+	/**
+		* Render the content
+	 	*/
 	render() {
 		return (
 			<section className="Chat">
@@ -66,6 +79,9 @@ export class Chat extends React.Component<Props, State> {
 	}
 }
 
+/**
+ * Props interface to Chat Component (for the TypeScript)
+ */
 export interface Props {
 	messages: Array<{
 		userName: string
